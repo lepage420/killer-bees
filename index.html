@@ -4,39 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Killer Bee's Tobacco Shop</title>
-    <!-- Fixed Font Link -->
+    <!-- Modern 2026 Font Imports -->
     <link href="https://fonts.googleapis.com" rel="stylesheet">
     <style>
-        body { font-family: 'Arial Black', sans-serif; margin: 0; padding: 0; background-color: #ffd700; color: #000; overflow: hidden; }
+        :root { --bee-yellow: #ffd700; --bee-black: #1a1a1a; }
+        body { font-family: 'Arial Black', sans-serif; margin: 0; padding: 0; background: var(--bee-yellow); color: #000; overflow-x: hidden; }
         
-        #age-gate { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.98); display: flex; align-items: center; justify-content: center; z-index: 10000; }
-        .gate-box { background: #1a1a1a; padding: 40px; border: 4px solid #ffd700; text-align: center; border-radius: 20px; color: white; max-width: 400px; width: 90%; }
-        
-        .gate-btn { background: #ffd700; color: #000; border: none; padding: 15px 40px; font-weight: bold; border-radius: 5px; cursor: pointer; margin-top: 20px; font-size: 1.4em; width: 100%; font-family: 'Permanent Marker', cursive; transition: transform 0.1s ease; }
-        .gate-btn:active { transform: scale(0.95); }
-        
-        header { background-color: #ffd700; padding: 30px 20px 10px 20px; text-align: center; }
-        .header-content { max-width: 700px; margin: 0 auto; width: 100%; }
-        .main-logo { width: 100%; height: auto; display: block; margin-bottom: 20px; }
-        .store-photo { width: 100%; height: auto; display: block; border: 6px solid #000; border-radius: 15px; box-shadow: 10px 10px 0px rgba(0,0,0,0.2); }
+        /* Age Gate with Blur Effect */
+        #age-gate { position: fixed; inset: 0; background: rgba(0,0,0,0.85); backdrop-filter: blur(10px); display: flex; align-items: center; justify-content: center; z-index: 10000; }
+        .gate-box { background: var(--bee-black); padding: 40px; border: 4px solid var(--bee-yellow); text-align: center; border-radius: 24px; color: white; max-width: 400px; width: 90%; box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
+        .gate-btn { background: var(--bee-yellow); color: #000; border: none; padding: 18px; font-weight: bold; border-radius: 12px; cursor: pointer; margin-top: 20px; font-size: 1.5em; width: 100%; font-family: 'Permanent Marker', cursive; transition: 0.2s; }
+        .gate-btn:active { transform: scale(0.96); }
 
-        .container { max-width: 800px; margin: auto; padding: 30px 20px; text-align: center; }
-        .info-card { background: #fff; padding: 30px; border-radius: 15px; border: 5px solid #000; box-shadow: 10px 10px 0px #000; margin-bottom: 30px; }
+        header { padding: 40px 20px 0; text-align: center; }
+        .header-content { max-width: 700px; margin: 0 auto; }
+        .main-logo { width: 100%; height: auto; margin-bottom: 25px; filter: drop-shadow(0 5px 15px rgba(0,0,0,0.1)); }
+        .store-photo { width: 100%; border: 8px solid #000; border-radius: 20px; box-shadow: 15px 15px 0px rgba(0,0,0,1); }
+
+        /* Modern Infinite Marquee */
+        .marquee-wrapper { background: #000; padding: 20px 0; margin-top: -10px; position: relative; z-index: 2; transform: rotate(-1deg); width: 110%; margin-left: -5%; }
+        .marquee-content { display: flex; white-space: nowrap; animation: scroll 25s linear infinite; }
+        .marquee-item { font-family: 'Kolker Brush', cursive; font-size: 2.8em; color: var(--bee-yellow); padding: 0 40px; text-transform: uppercase; }
+        @keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+        .container { max-width: 850px; margin: auto; padding: 50px 20px; display: grid; gap: 30px; }
         
-        h2, h3 { font-family: 'Permanent Marker', cursive; margin: 0; font-size: 2.5em; }
-        .hours-badge { background: #000; color: #ffd700; display: inline-block; padding: 15px 25px; border-radius: 5px; font-size: 1.5em; margin: 20px 0; font-weight: bold; }
-        .address-text { font-size: 1.4em; line-height: 1.4; font-weight: bold; margin-bottom: 20px; }
+        /* Glassmorphism Info Cards */
+        .info-card { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(10px); padding: 40px; border-radius: 24px; border: 4px solid #000; box-shadow: 12px 12px 0px #000; text-align: center; }
         
-        .btn-directions { background: #2a9d8f; color: #fff; padding: 18px 35px; text-decoration: none; font-weight: bold; border-radius: 50px; display: inline-block; font-size: 1.4em; margin: 10px; font-family: 'Permanent Marker', cursive; box-shadow: 0 4px 15px rgba(0,0,0,0.2); transition: transform 0.1s ease; }
-        .btn-directions:active { transform: scale(0.95); }
+        h2 { font-family: 'Permanent Marker', cursive; font-size: 3em; margin: 0 0 10px; }
+        .hours-badge { background: #000; color: var(--bee-yellow); display: inline-block; padding: 15px 30px; border-radius: 12px; font-size: 1.8em; margin: 20px 0; font-weight: bold; }
+        .address-text { font-size: 1.5em; font-weight: 800; margin-bottom: 25px; line-height: 1.2; }
+        
+        .btn-directions { background: #2a9d8f; color: #fff; padding: 20px 45px; text-decoration: none; font-weight: bold; border-radius: 60px; display: inline-block; font-size: 1.6em; font-family: 'Permanent Marker', cursive; box-shadow: 0 8px 20px rgba(42, 157, 143, 0.4); transition: 0.2s; }
+        .btn-directions:active { transform: translateY(4px); box-shadow: none; }
     </style>
 </head>
 <body>
 
-    <div id="age-gate" role="dialog" aria-modal="true">
+    <div id="age-gate">
         <div class="gate-box">
-            <h1 style="font-family: 'Permanent Marker'; color: #ffd700; font-size: 3.5em; margin:0;">STOP!</h1>
-            <p>You must be 19+ to enter Killer Bee's.</p>
+            <h1 style="font-family: 'Permanent Marker'; color: var(--bee-yellow); font-size: 4em; margin:0;">STOP!</h1>
+            <p style="font-size: 1.2em;">You must be 19+ to enter Killer Bee's.</p>
             <button class="gate-btn" onclick="verifyAge()">I AM 19+</button>
         </div>
     </div>
@@ -48,20 +57,24 @@
         </div>
     </header>
 
+    <div class="marquee-wrapper">
+        <div class="marquee-content">
+            <span class="marquee-item">All Major Brands • Native Brands • Huge Selection • Best Prices • </span>
+            <span class="marquee-item">All Major Brands • Native Brands • Huge Selection • Best Prices • </span>
+        </div>
+    </div>
+
     <div class="container">
         <div class="info-card">
             <h2>OPEN 7 DAYS</h2>
             <div class="hours-badge">7:00 AM - 11:00 PM</div>
-            <p style="font-size: 1.2em; font-weight: bold;">Best prices and service on the Reserve!</p>
+            <p style="font-size: 1.3em; font-weight: 900;">Premium service at the heart of the Reserve.</p>
         </div>
 
         <div class="info-card">
-            <h3>FIND US</h3>
+            <h3 style="font-family: 'Permanent Marker'; font-size: 2.5em; margin-bottom: 15px;">FIND US</h3>
             <p class="address-text">3789 6th Line<br>Ohsweken, ON N0A 1M0</p>
-            <div style="margin-top: 20px;">
-                <!-- Call button removed, directions button is now solo -->
-                <a href="https://www.google.com" target="_blank" class="btn-directions">📍 GET DIRECTIONS</a>
-            </div>
+            <a href="https://www.google.com" target="_blank" class="btn-directions">📍 GET DIRECTIONS</a>
         </div>
     </div>
 
@@ -73,4 +86,5 @@
     </script>
 </body>
 </html>
+
 
