@@ -4,49 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Killer Bee's Tobacco Shop</title>
-    <!-- Importing Permanent Marker for the headings -->
     <link href="https://fonts.googleapis.com" rel="stylesheet">
     <style>
-        /* Base styles */
         body { font-family: 'Arial Black', sans-serif; margin: 0; padding: 0; background-color: #ffd700; color: #000; overflow: hidden; }
         
-        /* Age Gate */
         #age-gate { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.98); display: flex; align-items: center; justify-content: center; z-index: 10000; }
         .gate-box { background: #1a1a1a; padding: 40px; border: 4px solid #ffd700; text-align: center; border-radius: 20px; color: white; max-width: 400px; width: 90%; }
         .gate-btn { background: #ffd700; color: #000; border: none; padding: 15px 40px; font-weight: bold; border-radius: 5px; cursor: pointer; margin-top: 20px; font-size: 1.4em; width: 100%; font-family: 'Permanent Marker', cursive; }
         
-        /* HEADER CHANGE: Yellow background for transparent logo */
-        header { 
-            background-color: #ffd700; 
-            padding: 40px 20px; 
-            text-align: center; 
-            border-bottom: 8px solid #000; 
-        }
+        header { background-color: #ffd700; padding: 30px 20px 10px 20px; text-align: center; }
         
-        .main-logo { 
-            max-width: 700px; 
+        /* Ensures both logo and store image stay the same width */
+        .header-content { max-width: 700px; margin: 0 auto; width: 100%; }
+        
+        .main-logo { width: 100%; height: auto; display: block; margin-bottom: 20px; }
+        
+        .store-photo { 
             width: 100%; 
             height: auto; 
             display: block; 
-            margin: 0 auto; 
-            /* This ensures a transparent PNG sits perfectly on the yellow */
+            border: 6px solid #000; 
+            border-radius: 15px; 
+            box-shadow: 10px 10px 0px rgba(0,0,0,0.2);
         }
-        
-        .container { max-width: 800px; margin: auto; padding: 40px 20px; text-align: center; }
+
+        .container { max-width: 800px; margin: auto; padding: 30px 20px; text-align: center; }
         .info-card { background: #fff; padding: 30px; border-radius: 15px; border: 5px solid #000; box-shadow: 10px 10px 0px #000; margin-bottom: 30px; }
         
         h2, h3 { font-family: 'Permanent Marker', cursive; margin: 0; font-size: 2.5em; }
         .hours-badge { background: #000; color: #ffd700; display: inline-block; padding: 15px 25px; border-radius: 5px; font-size: 1.5em; margin: 20px 0; font-weight: bold; }
         .address-text { font-size: 1.4em; line-height: 1.4; font-weight: bold; margin-bottom: 20px; }
         
-        /* Action Buttons */
         .btn-call { background: #e63946; color: #fff; padding: 18px 35px; text-decoration: none; font-weight: bold; border-radius: 50px; display: inline-block; font-size: 1.4em; margin: 10px; font-family: 'Permanent Marker', cursive; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
         .btn-directions { background: #2a9d8f; color: #fff; padding: 18px 35px; text-decoration: none; font-weight: bold; border-radius: 50px; display: inline-block; font-size: 1.4em; margin: 10px; font-family: 'Permanent Marker', cursive; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
     </style>
 </head>
 <body>
 
-    <!-- Age Verification -->
     <div id="age-gate" role="dialog" aria-modal="true">
         <div class="gate-box">
             <h1 style="font-family: 'Permanent Marker'; color: #ffd700; font-size: 3.5em; margin:0;">STOP!</h1>
@@ -55,24 +49,25 @@
         </div>
     </div>
 
-    <!-- Header with Yellow Background -->
     <header>
-        <img src="logo.png" alt="Killer Bee's Tobacco Shop" class="main-logo">
+        <div class="header-content">
+            <!-- Your Transparent Logo -->
+            <img src="logo.png" alt="Killer Bee's Logo" class="main-logo">
+            <!-- Your Store Photo -->
+            <img src="store.jpg" alt="Killer Bee's Storefront" class="store-photo">
+        </div>
     </header>
 
     <div class="container">
-        <!-- Business Hours -->
         <div class="info-card">
             <h2>OPEN 7 DAYS</h2>
             <div class="hours-badge">7:00 AM - 11:00 PM</div>
             <p style="font-size: 1.2em; font-weight: bold;">Best prices and service on the Reserve!</p>
         </div>
 
-        <!-- Contact & Directions -->
         <div class="info-card">
             <h3>FIND US</h3>
             <p class="address-text">3789 6th Line<br>Ohsweken, ON N0A 1M0</p>
-            
             <div style="margin-top: 20px;">
                 <a href="tel:+19057651603" class="btn-call">📞 CALL SHOP</a>
                 <a href="https://maps.google.com" target="_blank" class="btn-directions">📍 GET DIRECTIONS</a>
