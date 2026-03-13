@@ -5,8 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Killer Bee's Tobacco Shop</title>
 
-<!-- Correct Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Kolker+Brush&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Bebas+Neue&display=swap" rel="stylesheet">
 
 <style>
 :root { --bee-yellow: #ffd700; --bee-black: #1a1a1a; }
@@ -20,7 +19,6 @@ color: #000;
 overflow-x: hidden;
 }
 
-/* Age Gate */
 #age-gate {
 position: fixed;
 inset: 0;
@@ -55,10 +53,8 @@ margin-top: 20px;
 font-size: 1.5em;
 width: 100%;
 font-family: 'Permanent Marker', cursive;
-transition: 0.2s;
 }
 
-/* Header */
 header {
 padding: 40px 20px 20px;
 text-align: center;
@@ -82,7 +78,6 @@ border-radius: 20px;
 box-shadow: 10px 10px 0px rgba(0,0,0,1);
 }
 
-/* Marquee */
 .marquee-container {
 margin: 40px auto;
 max-width: 90%;
@@ -105,8 +100,9 @@ animation-play-state: paused;
 }
 
 .marquee-item {
-font-family: 'Kolker Brush', cursive;
-font-size: 2.5em;
+font-family: 'Bebas Neue', sans-serif;
+font-size: 2.2em;
+letter-spacing: 2px;
 color: var(--bee-yellow);
 padding: 0 40px;
 text-transform: uppercase;
@@ -117,7 +113,6 @@ from { transform: translateX(0); }
 to { transform: translateX(-50%); }
 }
 
-/* Main container */
 .container {
 max-width: 850px;
 margin: auto;
@@ -153,7 +148,6 @@ margin: 20px 0;
 font-weight: bold;
 }
 
-/* Directions Button */
 .btn-directions {
 background: #2a9d8f;
 color: #fff;
@@ -165,7 +159,6 @@ display: inline-block;
 font-size: 1.6em;
 font-family: 'Permanent Marker', cursive;
 box-shadow: 0 8px 20px rgba(42,157,143,0.4);
-transition: transform 0.1s ease;
 }
 
 .btn-directions:active {
@@ -176,7 +169,6 @@ transform: scale(0.95);
 
 <body>
 
-<!-- Age Gate -->
 <div id="age-gate">
 <div class="gate-box">
 <h1 style="font-family:'Permanent Marker'; color:var(--bee-yellow); font-size:4em; margin:0;">STOP!</h1>
@@ -192,11 +184,10 @@ transform: scale(0.95);
 </div>
 </header>
 
-<!-- Scrolling Banner -->
 <div class="marquee-container">
 <div class="marquee-content">
-<span class="marquee-item">All Major Brands • Native Brands • Huge Selection • Best Prices • </span>
-<span class="marquee-item">All Major Brands • Native Brands • Huge Selection • Best Prices • </span>
+<span class="marquee-item">CIGARETTES • NATIVE BRANDS • CIGARS • VAPES • HUGE SELECTION • BEST PRICES •</span>
+<span class="marquee-item">CIGARETTES • NATIVE BRANDS • CIGARS • VAPES • HUGE SELECTION • BEST PRICES •</span>
 </div>
 </div>
 
@@ -226,15 +217,13 @@ class="btn-directions">
 
 <script>
 
-/* Age verification with memory */
-
-function verifyAge() {
+function verifyAge(){
 localStorage.setItem("ageVerified","true");
 document.getElementById("age-gate").style.display="none";
 document.body.style.overflow="auto";
 }
 
-window.onload = function(){
+window.onload=function(){
 if(localStorage.getItem("ageVerified")==="true"){
 document.getElementById("age-gate").style.display="none";
 document.body.style.overflow="auto";
