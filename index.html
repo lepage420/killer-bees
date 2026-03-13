@@ -8,162 +8,196 @@
 <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Bebas+Neue&display=swap" rel="stylesheet">
 
 <style>
-:root { --bee-yellow: #ffd700; --bee-black: #1a1a1a; }
 
-body {
-font-family: 'Arial Black', sans-serif;
-margin: 0;
-padding: 0;
-background: var(--bee-yellow);
-color: #000;
-overflow-x: hidden;
+:root { --bee-yellow:#ffd700; --bee-black:#1a1a1a; }
+
+body{
+font-family:'Arial Black',sans-serif;
+margin:0;
+padding:0;
+background:var(--bee-yellow);
+color:#000;
+overflow-x:hidden;
 }
 
-#age-gate {
-position: fixed;
-inset: 0;
-background: rgba(0,0,0,0.85);
-backdrop-filter: blur(10px);
-display: flex;
-align-items: center;
-justify-content: center;
-z-index: 10000;
+/* AGE GATE */
+
+#age-gate{
+position:fixed;
+inset:0;
+background:rgba(0,0,0,0.85);
+backdrop-filter:blur(10px);
+display:flex;
+align-items:center;
+justify-content:center;
+z-index:10000;
 }
 
-.gate-box {
-background: var(--bee-black);
-padding: 40px;
-border: 4px solid var(--bee-yellow);
-text-align: center;
-border-radius: 24px;
-color: white;
-max-width: 400px;
-width: 90%;
+.gate-box{
+background:var(--bee-black);
+padding:40px;
+border:4px solid var(--bee-yellow);
+text-align:center;
+border-radius:24px;
+color:white;
+max-width:400px;
+width:90%;
 }
 
-.gate-btn {
-background: var(--bee-yellow);
-color: #000;
-border: none;
-padding: 18px;
-font-weight: bold;
-border-radius: 12px;
-cursor: pointer;
-margin-top: 20px;
-font-size: 1.5em;
-width: 100%;
-font-family: 'Permanent Marker', cursive;
+.gate-btn{
+background:var(--bee-yellow);
+color:#000;
+border:none;
+padding:18px;
+font-weight:bold;
+border-radius:12px;
+cursor:pointer;
+margin-top:20px;
+font-size:1.5em;
+width:100%;
+font-family:'Permanent Marker',cursive;
 }
 
-header {
-padding: 40px 20px 20px;
-text-align: center;
+/* HEADER */
+
+header{
+padding:40px 20px 20px;
+text-align:center;
 }
 
-.header-content {
-max-width: 700px;
-margin: 0 auto;
+.header-content{
+max-width:700px;
+margin:0 auto;
 }
 
-.main-logo {
-width: 100%;
-height: auto;
-margin-bottom: 25px;
+.main-logo{
+width:100%;
+height:auto;
+margin-bottom:25px;
 }
 
-.store-photo {
-width: 100%;
-border: 6px solid #000;
-border-radius: 20px;
-box-shadow: 10px 10px 0px rgba(0,0,0,1);
+.store-photo{
+width:100%;
+border:6px solid #000;
+border-radius:20px;
+box-shadow:10px 10px 0px rgba(0,0,0,1);
 }
 
-.marquee-container {
-margin: 40px auto;
-max-width: 90%;
-background: #000;
-padding: 15px 0;
-border-radius: 50px;
-box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-overflow: hidden;
-position: relative;
+/* BEE STRIPE BANNER */
+
+.marquee-container{
+margin:40px auto;
+max-width:90%;
+
+background: repeating-linear-gradient(
+45deg,
+#000,
+#000 20px,
+#111 20px,
+#111 40px
+);
+
+padding:15px 0;
+border-radius:50px;
+box-shadow:0 10px 30px rgba(0,0,0,0.3);
+overflow:hidden;
+position:relative;
+
+animation:stripes 6s linear infinite;
 }
 
-.marquee-content {
-display: flex;
-white-space: nowrap;
-animation: scroll 30s linear infinite;
+@keyframes stripes{
+from{background-position:0 0;}
+to{background-position:200px 0;}
 }
 
-.marquee-container:hover .marquee-content {
-animation-play-state: paused;
+.marquee-content{
+display:flex;
+white-space:nowrap;
+animation:scroll 30s linear infinite;
 }
 
-.marquee-item {
-font-family: 'Bebas Neue', sans-serif;
-font-size: 2.2em;
-letter-spacing: 2px;
-color: var(--bee-yellow);
-padding: 0 40px;
-text-transform: uppercase;
+.marquee-container:hover .marquee-content{
+animation-play-state:paused;
 }
 
-@keyframes scroll {
-from { transform: translateX(0); }
-to { transform: translateX(-50%); }
+.marquee-item{
+font-family:'Bebas Neue',sans-serif;
+font-size:2.2em;
+letter-spacing:2px;
+color:var(--bee-yellow);
+padding:0 40px;
+text-transform:uppercase;
 }
 
-.container {
-max-width: 850px;
-margin: auto;
-padding: 0 20px 50px;
-display: grid;
-gap: 30px;
+@keyframes scroll{
+from{transform:translateX(0);}
+to{transform:translateX(-50%);}
 }
 
-.info-card {
-background: rgba(255,255,255,0.8);
-backdrop-filter: blur(10px);
-padding: 40px;
-border-radius: 24px;
-border: 4px solid #000;
-box-shadow: 10px 10px 0px #000;
-text-align: center;
+/* CONTENT */
+
+.container{
+max-width:850px;
+margin:auto;
+padding:0 20px 50px;
+display:grid;
+gap:30px;
 }
 
-h2 {
-font-family: 'Permanent Marker', cursive;
-font-size: 3em;
-margin: 0;
+.info-card{
+background:rgba(255,255,255,0.85);
+backdrop-filter:blur(10px);
+padding:40px;
+border-radius:24px;
+border:4px solid #000;
+box-shadow:10px 10px 0px #000;
+text-align:center;
 }
 
-.hours-badge {
-background: #000;
-color: var(--bee-yellow);
-display: inline-block;
-padding: 15px 30px;
-border-radius: 12px;
-font-size: 1.8em;
-margin: 20px 0;
-font-weight: bold;
+h2{
+font-family:'Permanent Marker',cursive;
+font-size:3em;
+margin:0;
 }
 
-.btn-directions {
-background: #2a9d8f;
-color: #fff;
-padding: 20px 45px;
-text-decoration: none;
-font-weight: bold;
-border-radius: 60px;
-display: inline-block;
-font-size: 1.6em;
-font-family: 'Permanent Marker', cursive;
-box-shadow: 0 8px 20px rgba(42,157,143,0.4);
+.hours-badge{
+background:#000;
+color:var(--bee-yellow);
+display:inline-block;
+padding:15px 30px;
+border-radius:12px;
+font-size:1.8em;
+margin:20px 0;
+font-weight:bold;
 }
 
-.btn-directions:active {
-transform: scale(0.95);
+.btn-directions{
+background:#2a9d8f;
+color:#fff;
+padding:20px 45px;
+text-decoration:none;
+font-weight:bold;
+border-radius:60px;
+display:inline-block;
+font-size:1.6em;
+font-family:'Permanent Marker',cursive;
+box-shadow:0 8px 20px rgba(42,157,143,0.4);
 }
+
+.btn-directions:active{
+transform:scale(0.95);
+}
+
+/* MAP */
+
+.map-frame{
+width:100%;
+height:350px;
+border:0;
+border-radius:20px;
+}
+
 </style>
 </head>
 
@@ -171,7 +205,7 @@ transform: scale(0.95);
 
 <div id="age-gate">
 <div class="gate-box">
-<h1 style="font-family:'Permanent Marker'; color:var(--bee-yellow); font-size:4em; margin:0;">STOP!</h1>
+<h1 style="font-family:'Permanent Marker';color:var(--bee-yellow);font-size:4em;margin:0;">STOP!</h1>
 <p>You must be 19+ to enter Killer Bee's.</p>
 <button class="gate-btn" onclick="verifyAge()">I AM 19+</button>
 </div>
@@ -200,6 +234,7 @@ transform: scale(0.95);
 </div>
 
 <div class="info-card">
+
 <p style="font-size:1.5em;font-weight:800;margin-bottom:25px;">
 3789 6th Line<br>
 Ohsweken, ON N0A 1M0
@@ -210,6 +245,17 @@ target="_blank"
 class="btn-directions">
 📍 GET DIRECTIONS
 </a>
+
+</div>
+
+<div class="info-card">
+
+<iframe
+class="map-frame"
+loading="lazy"
+allowfullscreen
+src="https://www.google.com/maps?q=3789+6th+Line+Ohsweken+ON&output=embed">
+</iframe>
 
 </div>
 
