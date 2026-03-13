@@ -7,8 +7,8 @@
 <title>Killer Bee's Tobacco Shop</title>
 <meta name="description" content="Killer Bee's Tobacco Shop in Ohsweken. Cigarettes, native brands, cigars, vapes and great prices. Open 7 days 7AM-10PM.">
 
-<!-- Updated Fonts: Added Kolker Brush for that authentic logo look -->
-<link href="https://fonts.googleapis.com" rel="stylesheet">
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Kolker+Brush&display=swap" rel="stylesheet">
 
 <style>
 :root { --bee-yellow:#ffd700; --bee-black:#1a1a1a; }
@@ -20,7 +20,6 @@ body {
   background: var(--bee-yellow);
   color: #000;
   overflow-x: hidden;
-  /* Scroll is locked via JS until age is verified */
 }
 
 /* AGE GATE */
@@ -112,7 +111,6 @@ header {
   box-shadow: 0 10px 30px rgba(0,0,0,0.3);
   overflow: hidden;
   position: relative;
-  pointer-events: none; /* Prevents marquee from blocking clicks/scrolls */
 }
 
 .marquee-content {
@@ -122,7 +120,7 @@ header {
 }
 
 .marquee-item {
-  font-family: 'Kolker Brush', cursive; /* Better match for your logo */
+  font-family: 'Kolker Brush', cursive;
   font-size: 3em;
   color: var(--bee-yellow);
   padding: 0 60px;
@@ -131,8 +129,8 @@ header {
 }
 
 @keyframes scroll {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
 }
 
 /* CONTENT */
@@ -238,19 +236,17 @@ h2 {
       3789 6th Line<br>
       Ohsweken, ON N0A 1M0
     </p>
-    <!-- Fixed Navigation Link -->
-    <a href="https://www.google.com" target="_blank" rel="noopener noreferrer" class="btn-directions">
+    <a href="https://www.google.com/maps/dir/?api=1&destination=3789+6th+Line,+Ohsweken,+ON+N0A+1M0" target="_blank" rel="noopener noreferrer" class="btn-directions">
       📍 GET DIRECTIONS
     </a>
   </div>
 
   <div class="info-card" style="padding: 10px;">
-    <!-- Fixed Map Embed (No API Key Required) -->
     <iframe 
-      class="map-frame" 
-      src="https://www.google.com" 
-      allowfullscreen="" 
-      loading="lazy" 
+      class="map-frame"
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2878.870631015001!2d-80.16499978428227!3d43.076374379127235!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882e720acd9a4d43%3A0x7d7b8e2a1af5e8b0!2s3789%206th%20Line%2C%20Ohsweken%2C%20ON%20N0A%201M0%2C%20Canada!5e0!3m2!1sen!2sca!4v1700000000000"
+      allowfullscreen=""
+      loading="lazy"
       referrerpolicy="no-referrer-when-downgrade">
     </iframe>
   </div>
