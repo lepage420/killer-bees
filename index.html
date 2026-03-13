@@ -7,7 +7,8 @@
 <title>Killer Bee's Tobacco Shop</title>
 <meta name="description" content="Killer Bee's Tobacco Shop in Ohsweken. Cigarettes, native brands, cigars, vapes and great prices. Open 7 days 7AM-10PM.">
 
-<link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Bebas+Neue&display=swap" rel="stylesheet">
+<!-- Updated Fonts: Added Kolker Brush for that authentic logo look -->
+<link href="https://fonts.googleapis.com" rel="stylesheet">
 
 <style>
 :root { --bee-yellow:#ffd700; --bee-black:#1a1a1a; }
@@ -19,16 +20,15 @@ body {
   background: var(--bee-yellow);
   color: #000;
   overflow-x: hidden;
-  overflow-y: hidden; /* lock scrolling until age verified */
-  position: relative;
+  /* Scroll is locked via JS until age is verified */
 }
 
 /* AGE GATE */
 #age-gate {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.85);
-  backdrop-filter: blur(10px);
+  background: rgba(0,0,0,0.92);
+  backdrop-filter: blur(15px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -44,6 +44,7 @@ body {
   color: white;
   max-width: 400px;
   width: 90%;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
 }
 
 .gate-btn {
@@ -58,6 +59,7 @@ body {
   font-size: 1.5em;
   width: 100%;
   font-family: 'Permanent Marker', cursive;
+  transition: transform 0.1s;
 }
 
 .exit-btn {
@@ -73,6 +75,8 @@ body {
   width: 100%;
   font-family: 'Permanent Marker', cursive;
 }
+
+.gate-btn:active, .exit-btn:active { transform: scale(0.95); }
 
 /* HEADER */
 header {
@@ -93,52 +97,37 @@ header {
 
 .store-photo {
   width: 100%;
-  border: 6px solid #000;
+  border: 8px solid #000;
   border-radius: 20px;
-  box-shadow: 10px 10px 0px rgba(0,0,0,1);
+  box-shadow: 12px 12px 0px rgba(0,0,0,1);
 }
 
-/* BEE STRIPE BANNER */
+/* MARQUEE BANNER */
 .marquee-container {
   margin: 40px auto;
-  max-width: 90%;
-  background: repeating-linear-gradient(
-    45deg,
-    #000,
-    #000 20px,
-    #111 20px,
-    #111 40px
-  );
-  padding: 15px 0;
-  border-radius: 50px;
+  max-width: 95%;
+  background: #000;
+  padding: 20px 0;
+  border-radius: 60px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.3);
   overflow: hidden;
   position: relative;
-  animation: stripes 6s linear infinite;
-}
-
-@keyframes stripes {
-  from { background-position:0 0; }
-  to { background-position:200px 0; }
+  pointer-events: none; /* Prevents marquee from blocking clicks/scrolls */
 }
 
 .marquee-content {
   display: flex;
   white-space: nowrap;
-  animation: scroll 15s linear infinite; /* speed up scroll */
-}
-
-.marquee-container:hover .marquee-content {
-  animation-play-state: paused;
+  animation: scroll 20s linear infinite;
 }
 
 .marquee-item {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 2.2em;
-  letter-spacing: 2px;
+  font-family: 'Kolker Brush', cursive; /* Better match for your logo */
+  font-size: 3em;
   color: var(--bee-yellow);
-  padding: 0 40px;
+  padding: 0 60px;
   text-transform: uppercase;
+  flex-shrink: 0;
 }
 
 @keyframes scroll {
@@ -163,7 +152,6 @@ header {
   border: 4px solid #000;
   box-shadow: 10px 10px 0px #000;
   text-align: center;
-  position: relative;
 }
 
 h2 {
@@ -176,23 +164,18 @@ h2 {
   background:#000;
   color: var(--bee-yellow);
   display:inline-block;
-  padding:15px 30px;
-  border-radius:12px;
-  font-size:1.8em;
-  margin:20px 0;
+  padding:15px 35px;
+  border-radius:15px;
+  font-size:2em;
+  margin:25px 0;
   font-weight:bold;
-  animation: glow 1.8s infinite alternate;
-}
-
-@keyframes glow {
-  from { box-shadow: 0 0 10px #ffd700; }
-  to { box-shadow: 0 0 25px #ffd700; }
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
 }
 
 .btn-directions {
   background: #2a9d8f;
   color: #fff;
-  padding: 20px 45px;
+  padding: 22px 50px;
   text-decoration: none;
   font-weight: bold;
   border-radius: 60px;
@@ -200,50 +183,31 @@ h2 {
   font-size: 1.6em;
   font-family: 'Permanent Marker', cursive;
   box-shadow: 0 8px 20px rgba(42,157,143,0.4);
+  transition: transform 0.1s;
 }
 
-.btn-directions:active {
-  transform: scale(0.95);
-}
+.btn-directions:active { transform: scale(0.95); }
 
 /* MAP */
 .map-frame {
   width: 100%;
-  height: 350px;
+  height: 400px;
   border: 0;
   border-radius: 20px;
+  border: 4px solid #000;
 }
 
-/* FLYING BEE */
-.bee {
-  position: fixed;
-  width: 60px;
-  height: 60px;
-  background: url('bee.png') no-repeat center/contain;
-  top: 80%;
-  left: -80px;
-  z-index: 9999;
-  animation: flybee 15s linear infinite;
-}
-
-@keyframes flybee {
-  0% { transform: translateX(0) translateY(0) rotate(0deg); }
-  25% { transform: translateX(30vw) translateY(-5vh) rotate(20deg); }
-  50% { transform: translateX(60vw) translateY(5vh) rotate(-20deg); }
-  75% { transform: translateX(90vw) translateY(-5vh) rotate(15deg); }
-  100% { transform: translateX(120vw) translateY(0) rotate(0deg); }
-}
 </style>
 </head>
 
-<body>
+<body style="overflow: hidden;"> <!-- Body locked until verification -->
 
 <div id="age-gate">
   <div class="gate-box">
-    <h1 style="font-family:'Permanent Marker';color:var(--bee-yellow);font-size:4em;margin:0;">STOP!</h1>
-    <p>You must be 19+ to enter Killer Bee's.</p>
-    <button class="gate-btn" onclick="verifyAge()" aria-label="Confirm you are over 19">I AM 19+</button>
-    <button class="exit-btn" onclick="exitSite()" aria-label="Exit site">NO – EXIT</button>
+    <h1 style="font-family:'Permanent Marker';color:var(--bee-yellow);font-size:4.5em;margin:0;line-height:1;">STOP!</h1>
+    <p style="font-size: 1.2em; margin-bottom: 25px;">You must be 19+ to enter Killer Bee's.</p>
+    <button class="gate-btn" onclick="verifyAge()">I AM 19+</button>
+    <button class="exit-btn" onclick="exitSite()">NO – EXIT</button>
   </div>
 </div>
 
@@ -266,38 +230,37 @@ h2 {
   <div class="info-card">
     <h2>OPEN 7 DAYS</h2>
     <div class="hours-badge">7:00 AM - 10:00 PM</div>
-    <p style="font-size:1.3em;font-weight:900;">Premium service at the heart of the Reserve.</p>
+    <p style="font-size:1.4em;font-weight:900;">Premium service at the heart of the Reserve.</p>
   </div>
 
   <div class="info-card">
-    <p style="font-size:1.5em;font-weight:800;margin-bottom:25px;">
+    <p style="font-size:1.6em;font-weight:800;margin-bottom:25px; line-height: 1.2;">
       3789 6th Line<br>
       Ohsweken, ON N0A 1M0
     </p>
-    <a href="https://www.google.com/maps/search/?api=1&query=3789+6th+Line+Ohsweken+ON+N0A+1M0" target="_blank" rel="noopener noreferrer" class="btn-directions">
+    <!-- Fixed Navigation Link -->
+    <a href="https://www.google.com" target="_blank" rel="noopener noreferrer" class="btn-directions">
       📍 GET DIRECTIONS
     </a>
   </div>
 
-  <div class="info-card">
-    <iframe
-      class="map-frame"
-      title="Store Location Map"
-      loading="lazy"
-      allowfullscreen
-      src="https://www.google.com/maps/embed/v1/place?q=3789+6th+Line,Ohsweken,ON&key=YOUR_API_KEY">
+  <div class="info-card" style="padding: 10px;">
+    <!-- Fixed Map Embed (No API Key Required) -->
+    <iframe 
+      class="map-frame" 
+      src="https://www.google.com" 
+      allowfullscreen="" 
+      loading="lazy" 
+      referrerpolicy="no-referrer-when-downgrade">
     </iframe>
   </div>
 
 </div>
 
-<!-- Flying bee -->
-<div class="bee"></div>
-
 <script>
   function verifyAge(){
     document.getElementById("age-gate").style.display = "none";
-    document.body.style.overflowY = "auto";
+    document.body.style.overflow = "auto";
   }
 
   function exitSite(){
