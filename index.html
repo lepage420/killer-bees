@@ -1,9 +1,12 @@
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Killer Bee's Tobacco Shop</title>
 
 <meta name="description" content="Killer Bee's Tobacco Shop in Ohsweken. Cigarettes, native brands, cigars, vapes and great prices. Open 7 days 7AM-10PM.">
@@ -24,6 +27,10 @@ background:var(--bee-yellow);
 overflow-x:hidden;
 }
 
+.locked{
+overflow:hidden;
+}
+
 /* AGE GATE */
 
 #age-gate{
@@ -34,6 +41,7 @@ display:flex;
 align-items:center;
 justify-content:center;
 z-index:9999;
+transition:opacity .4s ease;
 }
 
 .gate-box{
@@ -45,6 +53,7 @@ text-align:center;
 color:white;
 width:90%;
 max-width:420px;
+box-shadow:0 20px 60px rgba(0,0,0,.6);
 }
 
 .gate-btn{
@@ -94,7 +103,6 @@ box-shadow:10px 10px 0px black;
 /* MARQUEE */
 
 .marquee-container{
-
 margin:40px auto;
 max-width:95%;
 background:black;
@@ -127,13 +135,11 @@ flex-shrink:0;
 }
 
 @keyframes scroll{
-
 0%{transform:translateX(0);}
 100%{transform:translateX(-50%);}
-
 }
 
-/* MAIN GRID */
+/* CONTENT GRID */
 
 .container{
 max-width:900px;
@@ -144,7 +150,7 @@ grid-template-columns:1fr 1fr;
 gap:30px;
 }
 
-/* CARDS */
+/* INFO CARDS */
 
 .info-card{
 background:rgba(255,255,255,0.9);
@@ -232,7 +238,7 @@ padding:0 40px;
 </style>
 </head>
 
-<body style="overflow:hidden">
+<body class="locked">
 
 <!-- AGE GATE -->
 
@@ -240,10 +246,118 @@ padding:0 40px;
 
 <div class="gate-box">
 
-<h1 style="font-family:'Permanent Marker';color:var(--bee-yellow);font-size:4em;margin:0;">STOP!</h1>
+<h1 style="font-family:'Permanent Marker';color:var(--bee-yellow);font-size:4em;margin:0;">
+STOP!
+</h1>
 
 <p>You must be 19+ to enter Killer Bee's.</p>
 
 <button class="gate-btn" onclick="verifyAge()">I AM 19+</button>
+<button class="exit-btn" onclick="exitSite()">NO – EXIT</button>
 
-<button class="exit-btn" onclick="exitSite()">NO – EXIT</butt
+</div>
+
+</div>
+
+<header>
+
+<img src="logo.png" alt="Killer Bee's Logo" class="main-logo">
+
+<img src="store.jpg" alt="Killer Bee's Storefront" class="store-photo">
+
+</header>
+
+<!-- BANNER -->
+
+<div class="marquee-container">
+
+<div class="marquee-content">
+
+<span class="marquee-item">CIGARETTES • NATIVE BRANDS • CIGARS • VAPES • HUGE SELECTION • BEST PRICES •</span>
+<span class="marquee-item">CIGARETTES • NATIVE BRANDS • CIGARS • VAPES • HUGE SELECTION • BEST PRICES •</span>
+
+</div>
+
+</div>
+
+<!-- HOURS + ADDRESS -->
+
+<div class="container">
+
+<div class="info-card">
+
+<h2>OPEN 7 DAYS</h2>
+
+<div class="hours-badge">
+7:00 AM – 10:00 PM
+</div>
+
+</div>
+
+<div class="info-card">
+
+<p style="font-size:1.6em;font-weight:800">
+
+3789 6th Line<br>
+Ohsweken, ON N0A 1M0
+
+</p>
+
+<a href="https://www.google.com/maps/dir/?api=1&destination=3789%206th%20Line%20Ohsweken%20ON" target="_blank" class="btn-directions">
+
+📍 GET DIRECTIONS
+
+</a>
+
+</div>
+
+</div>
+
+<!-- MAP -->
+
+<div class="map-container">
+
+<iframe
+class="map-frame"
+src="https://www.google.com/maps?q=3789+6th+Line+Ohsweken+ON&output=embed"
+loading="lazy">
+</iframe>
+
+</div>
+
+<footer>
+
+Killer Bee's Tobacco Shop<br>
+3789 6th Line • Ohsweken ON<br>
+Open 7AM – 10PM
+
+</footer>
+
+<script>
+
+function verifyAge(){
+
+const gate=document.getElementById("age-gate");
+
+gate.style.opacity="0";
+
+setTimeout(function(){
+
+gate.style.display="none";
+document.body.classList.remove("locked");
+
+},400);
+
+}
+
+function exitSite(){
+
+window.location.href="https://www.google.com";
+
+}
+
+</script>
+
+</body>
+</html>
+```
